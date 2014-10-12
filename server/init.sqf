@@ -83,6 +83,10 @@ _setupPlayerDB = [] spawn {}; // blank script to feed scriptDone a non-nil value
 if (_playerSavingOn || _serverSavingOn) then
 {
 	_verIniDB = "iniDB" callExtension "version";
+	if (("sock" callExtension "version") != "") then {
+	  //sock-rpc-stats pretending to be iniDB 1.2
+	  _verIniDB = "1.2";
+	};
 
 	if (_verIniDB == "") then
 	{
