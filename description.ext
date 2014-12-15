@@ -21,8 +21,8 @@ class Header
 	minPlayers=1;
 	maxPlayers=145; // 144 players, 1 headless client
 };
-author="AgentRev - A3Wasteland.com"; // it would be if you could keep "A3Wasteland.com" in the name, like "YourName and A3Wasteland.com" :)
-onLoadName = "A3Wasteland Altis"; // it would be great if you could keep "A3" in the name, like "ABC A3Wasteland" instead of "ABC Wasteland" :)
+author="NL United - AgentRev - A3Wasteland.com"; // it would be if you could keep "A3Wasteland.com" in the name, like "YourName and A3Wasteland.com" :)
+onLoadName = "Tank'n'Spank A3Wasteland"; // it would be great if you could keep "A3" in the name, like "ABC A3Wasteland" instead of "ABC Wasteland" :)" :)
 onLoadMission = "Wasteland is a harsh survival sandbox where two teams and independent players fight for survival.";
 overviewText = "Wasteland is a harsh survival sandbox where two teams and independent players fight for survival.";
 overviewTextLocked = "Wasteland is a harsh survival sandbox where two teams and independent players fight for survival.";
@@ -54,6 +54,11 @@ loadScreen = "mapConfig\Loading.jpg";
 #include "client\systems\playerMenu\dialog\teamkill_dialog.hpp"
 #include "addons\proving_ground\PG_config.hpp"
 
+#include "addons\bank\ui.hpp"
+#include "addons\bank\bank_menu.hpp"
+
+#include "client\systems\hud\dialog\downloadData.hpp"
+
 class RscTitles
 {
 	#include "addons\proving_ground\PG_rsctitles.hpp"
@@ -73,4 +78,26 @@ class CfgFunctions
 class CfgNotifications
 {
 	#include "client\CfgNotifications.hpp"
+};
+
+class CfgSounds
+{
+    sounds[] =
+	{
+		carlock, caralarm
+	};
+
+	class carlock
+	{
+		name = "carlock";
+		sound[] = {client\sounds\carlock.ogg,0.2,1};
+		titles[] = {};
+	};
+
+	class caralarm
+	{
+		name = "caralarm";
+		sound[] = {client\sounds\horn.ogg,0.9,1};
+		titles[] = {};
+	};
 };

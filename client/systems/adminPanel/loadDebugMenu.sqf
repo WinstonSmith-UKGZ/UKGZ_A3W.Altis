@@ -24,6 +24,7 @@ if (_uid call isAdmin) then
 					"Access Vehicle Store",
 					"Access Respawn Dialog",
 					"Access Proving Grounds",
+					"Access personal ATM",
 	                "Show Server FPS"
 	];
 

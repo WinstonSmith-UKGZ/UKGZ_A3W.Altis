@@ -222,6 +222,31 @@ player createDiaryRecord ["changelog",
 "
 ]];
 
+ player createDiaryRecord ["changelog",
+ [
+"NL United",
+"
+<br/> [Added] Earplugs under the End key
+<br/> [Added] Chop Shop and Change Ownership scripts
+<br/> [Added] Vehicle locking
+<br/> [Added] Locked vehicle break in at a cost
+<br/> [Added] Heal self script
+<br/> [Added] Access to DLC Helicopter pilot seat without DLC
+<br/> [Added] Patrol mission: Airport patrol
+<br/> [Added] Extra missions: Hostile Jet, Smugglers, Snipers & Hack laptop 
+<br/> [Added] Side mission: Town Takeover
+<br/> [Added] ATM's and showing bankmoney on HUD
+<br/> [Added] Blufor base for Blufor only
+<br/> [Added] Admin base in saltflats
+<br/> [Added] Intro script
+<br/> [Changed] Increased AI skill and accuracy 
+<br/> [Changed] Vehicle saving to 2*24 hours
+<br/> [Changed] Object saving to 5*24 hours
+<br/> [Changed] Spawnbeacon insertion to 0 mtrs.
+<br/> [Server] Lobby idle kick after 15 minutes
+<br/> [Server] Max ping is 250
+"
+]];
 
 player createDiaryRecord ["credits",
 [
@@ -279,6 +304,9 @@ player createDiaryRecord ["credits",
 <br/>	* Tonic (BIS forums)
 <br/>	* wiking.at (A3W forums)
 <br/>	* Zenophon (BIS Forums)
+<br/>	* Cael817 (A3W forums)
+<br/>	* Micovery (A3W forums)
+<br/>	* LouD (NL United / A3W forums)
 <br/>
 <br/><font size='16'>Thanks A LOT to everyone involved for the help and inspiration!</font>
 "

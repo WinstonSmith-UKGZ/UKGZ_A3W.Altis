@@ -79,6 +79,7 @@ storePurchaseHandle = _this spawn
 		_colorText = _this select 1;
 		_colorData = _this select 2;
 		_texArray  = [];
+		_vehicle setVariable ["vehOwnerName", name player, true];	// Used for locking and defining vehicle owner.
 
 		if (_colorData != "") then
 		{

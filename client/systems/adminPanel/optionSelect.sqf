@@ -53,23 +53,28 @@ if (_uid call isAdmin) then
 					}] call BIS_fnc_addStackedEventHandler;
 					hint "Click on map to teleport";
 				};
-				case 4: //Money
+				case 4: //Teleport player to me
+				{
+					closeDialog 0;
+					execVM "client\systems\adminPanel\tptome.sqf";
+				};
+				case 5: //Money
 				{
 					_money = 5000;
 					player setVariable ["cmoney", (player getVariable ["cmoney",0]) + _money, true];
 					if (!isNil "notifyAdminMenu") then { ["money", _money] call notifyAdminMenu };
 				};
-				case 5: //Debug Menu
+				case 6: //Debug Menu
 				{
 					closeDialog 0;
 					execVM "client\systems\adminPanel\loadDebugMenu.sqf";
 				};
-				case 6: //Object search menu
+				case 7: //Object search menu
 				{
 					closeDialog 0;
 					execVM "client\systems\adminPanel\loadObjectSearch.sqf";
 				};
-				case 7: // toggle God mode
+				case 8: // toggle God mode
 				{
 					execVM "client\systems\adminPanel\toggleGodMode.sqf";
 				};
@@ -106,11 +111,16 @@ if (_uid call isAdmin) then
 					closeDialog 0;
 					createDialog "balca_debug_main";
 				};
-				case 5: //Show server FPS function
+				case 5: //Access personal ATM"
+				{
+					closeDialog 0;
+					[player] call bank_menu_dialog;
+				};
+				case 6: //Show server FPS function
 				{
 					hint format["Server FPS: %1",serverFPS];
 				};
-				case 6: //Test Function
+				case 7: //Test Function
 				{
 					_group = createGroup civilian;
 					_leader = _group createunit ["C_man_polo_1_F", getPos player, [], 0.5, "Form"];
