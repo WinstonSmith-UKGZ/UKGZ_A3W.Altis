@@ -36,7 +36,9 @@ LCK_nlunited = [
 	"76561198045856719", // Akame
 	"76561197997722640", // Shivib
 	"76561198022640664", // Rockslide
-	"76561197964609822"  // Tinux
+	"76561197964609822", // Tinux
+	"76561197971344257", // KingoftheNOkill
+	"76561198122292581"  // robert
 ];
 
 LCK_basekeys = ["Insidekey","Outsidekey"];
