@@ -26,7 +26,7 @@ addMissionEventHandler ["HandleDisconnect",
 	{
 		if !(_unit getVariable ["playerSpawning", false]) then
 		{
-			[_uid, [], _unit call fn_getPlayerData] spawn fn_saveAccount;
+			[_uid, [], [_unit, false] call fn_getPlayerData] spawn fn_saveAccount;
 		};
 
 		deleteVehicle _unit;
@@ -96,7 +96,8 @@ forEach
 	"A3W_spawnBeaconCooldown",
 	"A3W_spawnBeaconSpawnHeight",
 	"A3W_purchasedVehicleSaving",
-	"A3W_missionVehicleSaving"
+	"A3W_missionVehicleSaving",
+	"A3W_missionFarAiDrawLines"
 ];
 
 ["A3W_join", "onPlayerConnected", { [_id, _uid, _name] spawn fn_onPlayerConnected }] call BIS_fnc_addStackedEventHandler;
