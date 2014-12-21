@@ -22,7 +22,6 @@ cash_set_value = {
 
 
 	(_player setVariable ["cmoney",_value, true])
-	[] spawn fn_savePlayerData;
 };
 
 cash_transaction = {

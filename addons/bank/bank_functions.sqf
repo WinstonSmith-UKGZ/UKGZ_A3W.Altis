@@ -20,7 +20,6 @@ bank_set_value = {
   if (not([_player] call player_human)) exitWith {};
 
 	_player setVariable ["bmoney",_value, true];
-	[] spawn fn_savePlayerData;
 };
 
 
