@@ -21,7 +21,6 @@ waitUntil {!isNil "A3W_serverSetupComplete"};
 showPlayerIcons = true;
 mutexScriptInProgress = false;
 respawnDialogActive = false;
-player setVariable ["respawnDialogActive", false, true];
 groupManagmentActive = false;
 pvar_PlayerTeamKiller = objNull;
 doCancelAction = false;
@@ -60,6 +59,9 @@ player addEventHandler ["Killed", { _this spawn onKilled }];
 
 A3W_scriptThreads pushBack execVM "client\functions\evalManagedActions.sqf";
 
+pvar_playerRespawn = player;
+publicVariableServer "pvar_playerRespawn";
+
 //Player setup
 player call playerSetupStart;
 
@@ -67,23 +69,25 @@ player call playerSetupStart;
 _baseMoney = ["A3W_startingMoney", 100] call getPublicVar;
 player setVariable ["cmoney", _baseMoney, true];
 
-// Player saving - Load from iniDB
+// Player saving - load data
 if (["A3W_playerSaving"] call isConfigOn) then
 {
-	call compile preprocessFileLineNumbers "persistence\players\c_setupPlayerDB.sqf";
+	call compile preprocessFileLineNumbers "persistence\client\players\setupPlayerDB.sqf";
 	call fn_requestPlayerData;
 
 	waitUntil {!isNil "playerData_loaded"};
 
-	[] spawn
+	A3W_scriptThreads pushBack ([] spawn
 	{
+		scriptName "savePlayerLoop";
+
 		// Save player every 60s
 		while {true} do
 		{
 			sleep 60;
 			call fn_savePlayerData;
 		};
-	};
+	});
 };
 
 if (isNil "playerData_alive") then
@@ -131,15 +135,17 @@ A3W_scriptThreads pushBack execVM "addons\fpsFix\vehicleManager.sqf";
 A3W_scriptThreads pushBack execVM "addons\Lootspawner\LSclientScan.sqf";
 [] execVM "client\functions\drawPlayerIcons.sqf";
 [] execVM "addons\far_revive\FAR_revive_init.sqf";
+[] execVM "addons\camera\functions.sqf";	// Improved admin camera
 [] execVM "addons\water_edge\functions.sqf";
-[] execVM "addons\bank\functions.sqf";
+[] execVM "addons\bank\functions.sqf";		// ATM script
+[] execVM "addons\cctv\functions.sqf";		// CCTV Camera
 
 if (["A3W_teamPlayersMap"] call isConfigOn) then
 {
 	[] execVM "client\functions\drawPlayerMarkers.sqf";
 };
 
-// update player's spawn beaoon
+// update player's spawn beacon
 {
 	if (_x getVariable ["ownerUID",""] == getPlayerUID player) then
 	{

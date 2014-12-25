@@ -79,6 +79,9 @@ storePurchaseHandle = _this spawn
 		_colorText = _this select 1;
 		_colorData = _this select 2;
 		_texArray  = [];
+		_vehicle setVariable ["vehOwnerName", name player, true];	// Used for locking and defining vehicle owner.
+		_vehicle setVariable ["ownerUID", getPlayerUID player, true];
+		[[netId _vehicle, 2], "A3W_fnc_setLockState", _vehicle] call A3W_fnc_MP;
 
 		if (_colorData != "") then
 		{

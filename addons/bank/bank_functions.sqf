@@ -33,7 +33,8 @@ bank_transaction = {
 	_cvalue = [_player] call bank_get_value;
 	_cvalue = _cvalue + _value;
 	[_player,_cvalue] call bank_set_value;
-	_cvalue
+	_cvalue;
+	[] spawn fn_savePlayerData; // save bank money
 };
 
 diag_log format["Loading bank functions complete"];

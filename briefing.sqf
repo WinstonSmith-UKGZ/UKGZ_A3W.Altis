@@ -24,6 +24,14 @@ player createDiaryRecord ["changelog",
 "
 ]];
 
+player createDiaryRecord ["changelog",
+[
+"v1.0c",
+"
+extDB MySQL beta
+Changelog coming soon
+"
+]];
 
 player createDiaryRecord ["changelog",
 [
@@ -46,7 +54,6 @@ player createDiaryRecord ["changelog",
 <br/> [Fixed] Blinking fog
 <br/> [Fixed] Clipped numbers on scoreboard
 <br/> [Fixed] Minor other optimizations and fixes
-<br/> [Fixed] Issue with jumpsystem causing spideyjumps
 "
 ]];
 
@@ -270,6 +277,7 @@ player createDiaryRecord ["credits",
 <br/>	* madbull (R3F)
 <br/>	* Mainfrezzer (Magnon)
 <br/>	* meat147 (GitHub)
+<br/>	* micovery (GitHub)
 <br/>	* Na_Palm (BIS forums)
 <br/>	* red281gt (GitHub)
 <br/>	* RockHound (BierAG)
@@ -283,7 +291,7 @@ player createDiaryRecord ["credits",
 <br/>	* spunFIN (BIS forums)
 <br/>	* Tonic (BIS forums)
 <br/>	* wiking.at (A3W forums)
-<br/>   * Zenophon (BIS Forums)
+<br/>	* Zenophon (BIS Forums)
 <br/>
 <br/><font size='16'>Thanks A LOT to everyone involved for the help and inspiration!</font>
 "
@@ -302,15 +310,11 @@ player createDiaryRecord ["infos",
 <br/>
 <br/>* If you spawn in an area with no vehicles or supplies in the immediate area, DO NOT just click respawn from the pause menu, chances are if you search an area of a few hundred meters, you will find something.
 <br/>
-<br/>* Ear Plugs: Pause/Break key
+<br/>* Always be on the lookout for nightvision. they are located in the ammo crates, and there are pairs scattered throughout vehicles. You can also purchase them from the gunstores. Nighttime without them SUCKS, and if you have them, you can conduct stealth raids on enemy bases under the cover of complete darkness.
 <br/>
 <br/>* When you set up a base, never leave your supplies unguarded, one guard will suffice, but it is recommended you have at least 2, maybe 3 guards at base at all times.
 <br/>
 <br/>* There are very aggressive AI characters that spawn with most missions and will protect the mission objectives with deadly force, be aware of them.
-<br/>
-<br/>* Use ATM to save your money, in the event that you are killed, it will be safe.
-<br/>
-<br/>* Service/Resupply vehicles at service points using BANK money.
 "
 ]];
 
@@ -318,7 +322,7 @@ player createDiaryRecord ["infos",
 [
 "About Wasteland",
 "
-<br/>Wasteland is a team versus team versus team sandbox survival experience. The objective of this mission is to rally your faction, scavenge supplies, weapons, and vehicles, and destroy the other factions. It is survival at its best! Keep in mind this is a work in progress, please direct your reports to http://uk-gaming-zone.co.uk/
+<br/>Wasteland is a team versus team versus team sandbox survival experience. The objective of this mission is to rally your faction, scavenge supplies, weapons, and vehicles, and destroy the other factions. It is survival at its best! Keep in mind this is a work in progress, please direct your reports to http://forums.a3wasteland.com/
 <br/>
 <br/>FAQ:
 <br/>

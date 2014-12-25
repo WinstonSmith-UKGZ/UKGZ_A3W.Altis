@@ -15,7 +15,7 @@
 #define BEACON_CHECK_RADIUS 250
 
 disableSerialization;
-waitUntil {!isNil "bis_fnc_init"};
+waitUntil {!isNil "bis_fnc_init" && {bis_fnc_init}};
 
 createDialog "RespawnSelectionDialog";
 _display = uiNamespace getVariable ["RespawnSelectionDialog", displayNull];
@@ -46,7 +46,6 @@ _side = switch (playerSide) do
 
 _respawnText ctrlSetStructuredText parseText (format ["Welcome to Wasteland<br/>You are on %1. Please select a spawn point.", _side]);
 respawnDialogActive = true;
-player setVariable ["respawnDialogActive", true, true];
 
 //buttonSetAction [respawn_Random_Button, format ["%1 [%2,0] execVM 'client\functions\spawnAction.sqf'", _disableAllButtons, respawn_Random_Button]];
 _randomButton buttonSetAction format ["%1 [%2,[0,nil]] execVM 'client\functions\spawnAction.sqf'", DISABLE_ALL_BUTTONS, respawn_Random_Button];

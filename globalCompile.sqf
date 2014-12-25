@@ -73,10 +73,12 @@ _serverFunc = "server\functions";
 A3W_fnc_pushVehicle = [_serverFunc, "pushVehicle.sqf"] call mf_compile;
 A3W_fnc_setName = [_clientFunc, "fn_setName.sqf"] call mf_compile;
 A3W_fnc_towingHelper = [_serverFunc, "towingHelper.sqf"] call mf_compile;
+A3W_fnc_setLockState = { (objectFromNetId (_this select 0)) lock (_this select 1) } call mf_compile; // Added for locking unlocking
 allPlayers = [_serverFunc, "allPlayers.sqf"] call mf_compile;
 applyVehicleTexture = "client\systems\vehicleStore\applyVehicleTexture.sqf" call mf_compile;
 cargoToPairs = [_serverFunc, "cargoToPairs.sqf"] call mf_compile;
 detachTowedObject = [_serverFunc, "detachTowedObject.sqf"] call mf_compile;
+FAR_setKillerInfo = "addons\far_revive\FAR_setKillerInfo.sqf" call mf_compile;
 findSafePos = [_serverFunc, "findSafePos.sqf"] call mf_compile;
 fn_addScore = [_serverFunc, "fn_addScore.sqf"] call mf_compile;
 fn_addToPairs = [_serverFunc, "fn_addToPairs.sqf"] call mf_compile;
@@ -88,7 +90,6 @@ fn_forceAddItem = [_clientFunc, "fn_forceAddItem.sqf"] call mf_compile;
 fn_getFromPairs = [_serverFunc, "fn_getFromPairs.sqf"] call mf_compile;
 fn_getPos3D = [_serverFunc, "fn_getPos3D.sqf"] call mf_compile;
 fn_getScore = [_serverFunc, "fn_getScore.sqf"] call mf_compile;
-fn_setScore = [_serverFunc, "fn_setScore.sqf"] call mf_compile;
 fn_getTeamScore = [_serverFunc, "fn_getTeamScore.sqf"] call mf_compile;
 fn_magazineAmmoCargo = [_serverFunc, "fn_magazineAmmoCargo.sqf"] call mf_compile;
 fn_numbersText = [_serverFunc, "fn_numbersText.sqf"] call mf_compile;
@@ -103,6 +104,7 @@ getFwdVelocity = [_serverFunc, "getFwdVelocity.sqf"] call mf_compile;
 getHitPoints = [_serverFunc, "getHitPoints.sqf"] call mf_compile;
 getMagAmmoCount = [_serverFunc, "getMagAmmoCount.sqf"] call mf_compile;
 getMoveWeapon = [_clientFunc, "getMoveWeapon.sqf"] call mf_compile;
+fn_getPlayerData = "persistence\client\players\getPlayerData.sqf" call mf_compile;
 getPublicVar = [_serverFunc, "getPublicVar.sqf"] call mf_compile;
 getTeamMarkerColor = "territory\client\getTeamMarkerColor.sqf" call mf_compile;
 isConfigOn = [_serverFunc, "isConfigOn.sqf"] call mf_compile;
@@ -114,6 +116,9 @@ switchMoveGlobal = [_clientFunc, "switchMoveGlobal.sqf"] call mf_compile;
 vehicleDammagedEvent = [_serverFunc, "vehicleDammagedEvent.sqf"] call mf_compile;
 vehicleEngineEvent = [_serverFunc, "vehicleEngineEvent.sqf"] call mf_compile;
 vehicleHandleDamage = [_serverFunc, "vehicleHandleDamage.sqf"] call mf_compile;
+vehicleHitTracking = [_serverFunc, "vehicleHitTracking.sqf"] call mf_compile;
+
+call compile preprocessFileLineNumbers "server\functions\mf_remote.sqf";
 
 "pvar_switchMoveGlobal" addPublicVariableEventHandler { ((_this select 1) select 0) switchMove ((_this select 1) select 1) };
 "pvar_detachTowedObject" addPublicVariableEventHandler { (_this select 1) spawn detachTowedObject };

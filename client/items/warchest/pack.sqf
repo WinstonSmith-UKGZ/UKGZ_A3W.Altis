@@ -39,10 +39,9 @@ _success =  [DURATION, ANIM, _hasFailed, [_warchest]] call a3w_actions_start;
 MUTEX_UNLOCK;
 
 if (_success) then {
+	pvar_manualObjectDelete = [netId _warchest, _warchest getVariable "A3W_objectID"];
+	publicVariableServer "pvar_manualObjectDelete";
 	deleteVehicle _warchest;
 	[MF_ITEMS_WARCHEST, 1] call mf_inventory_add;
 	["You successfully packed the Warchest", 5] call mf_notify_client;
-
-	 untrackObject = _warchest;
-   publicVariableServer "untrackObject";
 };

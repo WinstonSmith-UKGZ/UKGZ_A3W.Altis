@@ -58,6 +58,12 @@ loadScreen = "mapConfig\Loading.jpg";
 #include "addons\bank\ui.hpp"
 #include "addons\bank\bank_menu.hpp"
 
+#include "addons\cctv\ui.hpp"
+#include "addons\cctv\laptop_flat_menu.hpp"
+#include "addons\cctv\cctv_menu.hpp"
+
+
+
 class RscTitles
 {
 	#include "addons\proving_ground\PG_rsctitles.hpp"
@@ -81,9 +87,9 @@ class CfgNotifications
 
 class CfgSounds
 {
-	sounds[] = 
+	sounds[] =
 	{
-		beep, beep2, beep3, beep4, beep5, beep6, beep7, beep8, beep9, carlock
+		beep, beep2, beep3, beep4, beep5, beep6, beep7, beep8, beep9
 	};
 		class beep
 			{
@@ -130,4 +136,5 @@ class CfgSounds
                                 sound[] = {"addons\beacondetector\sound\beep.wav", db-10, 0.1};
                                 titles[] = {};
 			};
+
 };

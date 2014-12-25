@@ -45,6 +45,7 @@ EtV_UnitCheck =
 	_return
 };
 
+/*
 EtV_TimedCharge =
 {
 	_explosive = _this select 0;
@@ -66,6 +67,7 @@ EtV_TimedCharge =
 		_illogic setVariable ["timer",_oldTime - 1];
 	};
 };
+*/
 
 EtV_AttachCharge =
 {
@@ -103,7 +105,7 @@ EtV_AttachCharge =
 		_explosive attachTo [_nearVehicle];
 		[_explosive,_random0,_random1] call BIS_fnc_SetPitchBank;
 		_unit setVariable ["charges",(_unit getVariable ["charges",[]]) + [_explosive]];
-		[_explosive,_unit] spawn EtV_TimedCharge;
+//		[_explosive,_unit] spawn EtV_TimedCharge;
 	};
 };
 
@@ -152,7 +154,7 @@ EtV_Actions =
 	_unit = _this select 0;
 	_unit addAction ["<t color=""#FFE496"">" +"Attach Explosive Charge", EtV_AttachCharge, ["DemoCharge_Remote_Mag",_unit], 1, true, true, "","['DemoCharge_Remote_Mag',_target] call EtV_ChargeCheck"];
 	_unit addAction ["<t color=""#FFE496"">" +"Touch off bomb(s)", EtV_TouchOff, [_unit], 1, true, true, "","[_target] call EtV_UnitCheck"];
-	_unit addAction ["<t color=""#FFE496"">" +"Set timer on (30 seconds)", EtV_Timer, [_unit], 1, true, true, "","[_target] call EtV_UnitCheckTimer"];
+	//_unit addAction ["<t color=""#FFE496"">" +"Set timer on (30 seconds)", EtV_Timer, [_unit], 1, true, true, "","[_target] call EtV_UnitCheckTimer"];
 };
 //=======================
 EtVInitialized = true;

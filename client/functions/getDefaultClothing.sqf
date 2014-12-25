@@ -47,12 +47,12 @@ switch (_side) do
 			};
 			default
 			{
-				if (_item == "uniform") then { _result = "U_B_CombatUniform_mcam" };
+				if (_item == "uniform") then { _result = "U_B_CTRG_1" };
 				if (_item == "vest") then { _result = _defaultVest };
 			};
 		};
 
-		if (_item == "headgear") then { _result = "H_MilCap_mcamo" };
+		if (_item == "headgear") then { _result = "H_Cap_khaki_specops_UK" };
 	};
 	case OPFOR:
 	{

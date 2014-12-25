@@ -34,8 +34,6 @@ _soldier addVest (_vestTypes call BIS_fnc_selectRandom);
 _soldier addPrimaryWeaponItem "acc_flashlight";
 _soldier enablegunlights "forceOn";					//set to "forceOn" to force use of lights (during day too default = AUTO)
 
-	
-
 if (_rank != "") then
 {
 	_soldier setRank _rank;

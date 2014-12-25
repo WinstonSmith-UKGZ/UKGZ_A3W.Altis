@@ -36,17 +36,28 @@ if (!isDedicated) then
 {
 	[] spawn
 	{
-		9999 cutText ["Welcome to UKGZ A3Wasteland, please wait for your client to initialize", "BLACK", 0.01];
+		if (hasInterface) then // Normal player
+		{
+			9999 cutText ["Welcome to UKGZ A3Wasteland, please wait for your client to initialize", "BLACK", 0.01];
 
-		waitUntil {!isNull player};
-		removeAllWeapons player;
-		client_initEH = player addEventHandler ["Respawn", { removeAllWeapons (_this select 0) }];
+			waitUntil {!isNull player};
+			removeAllWeapons player;
+			client_initEH = player addEventHandler ["Respawn", { removeAllWeapons (_this select 0) }];
 
-		// Reset group & side
-		[player] joinSilent createGroup playerSide;
-		player setVariable ["playerSpawning", true, true];
+			// Reset group & side
+			[player] joinSilent createGroup playerSide;
+			player setVariable ["playerSpawning", true, true];
 
-		[] execVM "client\init.sqf";
+			execVM "client\init.sqf";
+		}
+		else // Headless
+		{
+			waitUntil {!isNull player};
+			if (typeOf player == "HeadlessClient_F") then
+			{
+				execVM "client\headless\init.sqf";
+			};
+		};
 	};
 };
 
@@ -57,16 +68,11 @@ if (isServer) then
 	[] execVM "server\init.sqf";
 };
 
-//[AiCacheDistance(players),TargetFPS(-1 for Auto),Debug,CarCacheDistance,AirCacheDistance,BoatCacheDistance]execvm "addons\zbe_cache\main.sqf";
-
-if (isServer) then {[3400,-1,true,1000,2000,2000]execvm "addons\zbe_cache\main.sqf"};
-
 //init 3rd Party Scripts
 [] execVM "addons\R3F_ARTY_AND_LOG\init.sqf";
 [] execVM "addons\proving_ground\init.sqf";
 [] execVM "addons\scripts\DynamicWeatherEffects.sqf";
 [] execVM "addons\JumpMF\init.sqf";
-[] execVM "addons\EtV\init.sqf";
 [] execVM "addons\outlw_magRepack\MagRepack_init_sv.sqf";
 [] execVM "addons\laptop\init.sqf";
 [] execVM "addons\zlt_fastrope\zlt_fastrope.sqf";

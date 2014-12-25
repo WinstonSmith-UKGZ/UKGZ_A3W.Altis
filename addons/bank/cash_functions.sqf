@@ -34,7 +34,8 @@ cash_transaction = {
 	_cvalue = [_player] call cash_get_value;
 	_cvalue = _cvalue + _value;
 	[_player,_cvalue] call cash_set_value;
-	_cvalue
+	_cvalue;
+	[] spawn fn_savePlayerData; // save cash money
 };
 
 diag_log format["Loading cash functions complete"];
